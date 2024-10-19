@@ -183,8 +183,6 @@ input[type='checkbox'] {
 }
 
 .textbox {
-    display: flex;
-    justify-content: flex-start;
     font-family: "Marske", Delicious;
     font-size: 22px;
     background: rgba(0, 0, 0, 0.30);
@@ -195,6 +193,94 @@ input[type='checkbox'] {
     -webkit-transition-duration: 0.4s;
     /* Safari */
     padding: 10px 10px;
+}
+
+
+.textbox ul,
+.textbox ol {
+    margin: 0;
+    padding-left: 40px;
+    /* Adjusts padding to position the list */
+    list-style-type: disc;
+    /* Displays bullets or numbers */
+    color: #0ef;
+    /* Ensures the text color is your desired color */
+}
+
+.textbox li,
+a {
+
+    margin-bottom: 10px;
+    padding-left: 15px;
+    color: #0ef;
+    text-decoration: none;
+}
+
+.textbox p {
+    padding: 15px;
+}
+
+.textbox-surprise {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Marske", Delicious;
+    font-size: 22px;
+    background: rgba(0, 0, 0, 0.30);
+    border: 2px inset #54fbe5;
+    /* Cyberpunk blue */
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    padding: 10px 10px;
+}
+
+.textbox-team {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Ensures even spacing between items */
+    align-items: flex-start;
+    /* Aligns items at the top */
+    width: 100%;
+    background: rgba(0, 0, 0, 0.30);
+    border: 2px inset #54fbe5;
+    border-radius: 20px;
+    padding: 10px;
+    white-space: nowrap;
+    /* Prevents wrapping */
+    overflow-x: auto;
+    /* Allows horizontal scroll if the row is too wide */
+}
+
+.textbox-team a {
+    display: flex;
+    flex-direction: column-reverse;
+    /* Ensures image is on top, text is below */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    margin: 5px;
+    text-decoration: none;
+    color: #0ef;
+    width: 120px;
+}
+
+.textbox-team img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    /* Ensures the image maintains its aspect ratio */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.textbox-team a:hover img {
+    transform: scale(1.05);
+    /* slight zoom on hover */
+    transition: all 0.3s ease-in-out;
+    /* Smooth hover effect */
 }
 
 
