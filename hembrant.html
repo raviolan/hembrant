@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Detta är det som gör sidan responsiv-->
+    <title>u found the hembränt</title>
+    <link rel="stylesheet" type="text/css" href="hembrant-stylesheet.css" />
+</head>
+
+<body>
+
+
+    <div class="welcome-container">
+        <h1 id="typing-text">Welcome, brave soul. congrats. u found the hembränt.</h1>
+    </div>
+    <script src="hembrant/hembrant.js"></script> <!-- Link to JavaScript file -->
+
+    <div class="kool-aid-button">
+        <a id="enter" href="hembrant/drink-the-kool-aid.html">Enter</a>
+    </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <a href="goblin-index.html" class="footer-logo">
+                <img class="magic-potion" src="images/magic-potion-bottle.png" alt="back to home">
+            </a>
+            <section class="spinning-banner">
+                <p class="marquee-text"> 🔮 här råder endast kaos 🔮 </p>
+            </section>
+        </div>
+    </footer>
+    <!----------------------SCRIPTS------------------------------------------------->
+    <script>
+        document.querySelectorAll('.adventure-flags').forEach(flag => {
+            flag.addEventListener('click', function () {
+                // Toggle the 'active' class on click
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

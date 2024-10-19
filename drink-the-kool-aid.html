@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Detta är det som gör sidan responsiv-->
+    <title>u drank the kool-aid</title>
+    <link rel="stylesheet" type="text/css" href="hembrant-stylesheet.css" />
+</head>
+
+<body>
+
+
+    <div class="welcome-container">
+        <h1 id="typing-text">let's go rangers</h1>
+    </div>
+    <script src="hembrant.js"></script> <!-- Link to JavaScript file -->
+    <!--  <div class="image-container">
+        <img src="raviimages/r-simple.png" alt="Ravi logga">
+        <img src="raviimages/ravi-main.png" alt="Main">
+        <img src="raviimages/ravi-sune.png" alt="Sune">
+        <img src="raviimages/sten-stina.png" alt="Sten-Stina">
+    </div>
+    -->
+    <section id=ghost-boxes>
+        <div class="wrap-collabsible">
+            <input id="collapsible1" class="toggle" type="checkbox">
+            <label for="collapsible1" class="lbl-toggle">Past Adventures</label>
+            <div class="collapsible-content">
+                <div class="textbox">
+                    <li>Retrieve the merchant goods</li>
+                    <li>casino stuff</li>
+                    <li>haunted house</li>
+                </div>
+            </div>
+            <input id="collapsible2" class="toggle" type="checkbox">
+            <label for="collapsible2" class="lbl-toggle">Future Adventures</label>
+            <div class="collapsible-content">
+                <div class="textbox">
+                    <p> d trodde du, u nosy fuck. not today bitch </p>
+                </div>
+            </div>
+            <input id="collapsible3" class="toggle" type="checkbox">
+            <label for="collapsible3" class="lbl-toggle">Characters</label>
+            <div class="collapsible-content">
+                <div class="textbox">
+                    <li>Barbaren</li>
+                    <li>Trollisen</li>
+                </div>
+            </div>
+            <input id="collapsible4" class="toggle" type="checkbox">
+            <label for="collapsible4" class="lbl-toggle">DM Diary</label>
+            <div class="collapsible-content">
+                <div class="textbox">
+                    <p>wait why is this here</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer">
+            <a href="/Users/vioarr/Documents/Technigo-Bootcamp-2024/goblin-times/goblin-times/goblin-index.html"
+                class="footer-logo">
+                <img class="magic-potion" src="hembrant-images/magic-potion-bottle.png" alt="back to home">
+            </a>
+            <section class="spinning-banner">
+                <p class="marquee-text"> 🔮 här råder endast kaos 🔮 </p>
+            </section>
+        </div>
+
+    </footer>
+    <!----------------------SCRIPTS------------------------------------------------->
+    <script>
+        document.querySelectorAll('.adventure-flags').forEach(flag => {
+            flag.addEventListener('click', function () {
+                // Toggle the 'active' class on click
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
