@@ -43,6 +43,7 @@ h1 {
 
 .welcome-container h1 {
     color: #B4DD1E;
+    padding-bottom: 20px;
 }
 
 .spinning-banner {
@@ -196,7 +197,7 @@ input[type='checkbox'] {
 }
 
 
-/*---------------------------------------------------------------------------------------*/
+/*-----------------------------------------------ENTER GHOST BUTTON--------------------------------------------------*/
 
 
 .kool-aid-button {
@@ -258,10 +259,16 @@ button {
 
 /* ------------------------- Footer with spinning logo --------------------------------------------*/
 
+.bottom-stuff {
+    display: flex;
+    justify-content: flex-end;
+}
+
 footer {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    position: absolute;
 
 }
 
