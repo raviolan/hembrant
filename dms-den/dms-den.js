@@ -22,14 +22,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     type(); // Start the typing animation
 });
-
-const hoverArea = document.querySelector('.hover-area-1');
-const chest = document.getElementById('chest');
-
-hoverArea.addEventListener('mouseenter', () => {
-    chest.style.opacity = '1'; // Show chest
-});
-
-hoverArea.addEventListener('mouseleave', () => {
-    chest.style.opacity = '0'; // Hide chest
-});

@@ -5,17 +5,27 @@
     padding: 0;
 }
 
+html,
 body {
-    font-size: 16px;
-    padding: 10px;
-    background-image: url(dms-images/dm-office-sea.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 10vh;
+    height: 100%;
     margin: 0;
-    background-color: black;
-    overflow-x: hidden;
+    padding: 0;
 }
+
+body {
+    background-image: url(dms-images/dm-stormy-wide.png);
+    /* Replace with your actual image path */
+    background-size: cover;
+    /* Ensures the image always covers the entire screen */
+    background-position: top center;
+    /* For mobile, focus on the top part of the image */
+    background-repeat: no-repeat;
+    /* Prevents the image from repeating */
+    background-attachment: scroll;
+    /* Scrolls with the content on mobile */
+}
+
+
 
 @font-face {
     font-family: JunigardenSwash;
@@ -62,16 +72,19 @@ h1 {
 
     /* Styles for tablets and larger devices */
     body {
-        font-size: 18px;
-        flex-direction: row;
-        justify-content: center;
-        background-image: url(dms-images/dm-office-sea.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 10vh;
-        margin: 0;
-        background-color: black;
-        overflow-x: hidden;
+        body {
+            font-size: 18px;
+            flex-direction: row;
+            justify-content: center;
+            background-image: url(dms-images/dm-stormy-wide.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 10vh;
+            margin: 0;
+            background-color: black;
+            overflow-x: hidden;
+
+        }
 
     }
 }
