@@ -64,10 +64,11 @@ h1 {
 /*-----------------------------------DRAGON STUFF----------------------------------------------------*/
 .dragon-container {
     position: absolute;
-    top: 0;
+    top: 20px;
     left: 0;
     /* This should stay 0 since we're using JS for positioning */
-    width: 100px;
+    width: 250px;
+    height: 100px;
     /* Adjust size as needed */
     overflow: hidden;
     /* Keeps the dragon contained */
@@ -289,6 +290,34 @@ a {
 
 
 /*-----------------------------------------------CONTENT SPACE--------------------------------------------------*/
+.long-story {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Single column layout */
+    background: rgba(0, 0, 0, 0.70);
+    border: 2px inset #b59e28;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 80%;
+    /* Adjust to your preference */
+    height: 500px;
+    /* Set a fixed height */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    margin: 20px auto;
+    /* Center horizontally with margin */
+}
+
+.dragon-story {
+    font-family: "Marske", Delicious;
+    color: #b59e28;
+    font-size: 22px;
+    text-align: justify;
+    margin: 50px;
+    /* Justified text for better readability */
+}
+
+
 .treasures {
     display: grid;
     grid-template-columns: repeat(6, auto);
