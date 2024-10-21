@@ -14,15 +14,13 @@ body {
 
 body {
     background-image: url(dms-images/dm-stormy-wide.png);
-    /* Replace with your actual image path */
     background-size: cover;
     /* Ensures the image always covers the entire screen */
-    background-position: top center;
-    /* For mobile, focus on the top part of the image */
+    background-position: calc(15%) center;
     background-repeat: no-repeat;
-    /* Prevents the image from repeating */
     background-attachment: scroll;
     /* Scrolls with the content on mobile */
+    padding-top: 150px;
 }
 
 
@@ -53,8 +51,8 @@ h1 {
 
 .welcome-container h1 {
     color: #b59e28;
-    padding-bottom: 100px;
-    padding-top: 100px;
+    padding-bottom: 40px;
+    padding-top: 80px;
     text-shadow:
         0 0 10px black,
         0 0 20px #b59e28,
@@ -63,36 +61,55 @@ h1 {
         0 0 160px #b59e28;
 }
 
+/*-----------------------------------DRAGON STUFF----------------------------------------------------*/
+.dragon-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* This should stay 0 since we're using JS for positioning */
+    width: 100px;
+    /* Adjust size as needed */
+    overflow: hidden;
+    /* Keeps the dragon contained */
+}
+
+.dragon {
+    position: relative;
+    /* Keep this for relative positioning */
+    width: 100px;
+    /* Adjust this as needed */
+}
+
 
 
 /*-----------------------------------GHOST BOXES----------------------------------------------------*/
 .ghost-boxes {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two columns of equal size */
+    justify-items: center;
+    /* Center boxes horizontally */
+    gap: 20px;
+    /* Adds space between boxes */
+    width: 100%;
+    /* Full width of the container */
 }
-
 
 .wrap-collabsible {
-    margin-bottom: 1.2rem 0;
-    flex: 1;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-    padding-top: 5px;
-    padding-bottom: 70px;
-    padding-left: 20px;
+    grid-column: span 1;
+    /* Each box spans one column (half the grid) */
+    width: 75%;
+    /* Ensure they take up half the available space */
+    margin: 0 auto;
+    /* Center them inside their grid column */
+    padding: 20px;
     transition: all 0.3s ease;
-    /* Smooth transition for hover effect */
-    overflow: hidden;
-    /* Hide overflow content */
-    cursor: pointer;
     color: #b59e28;
-
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
 }
+
 
 input[type='checkbox'] {
     display: none;
@@ -178,7 +195,7 @@ input[type='checkbox'] {
     -moz-border-radius: 20px;
     -webkit-transition-duration: 0.4s;
     /* Safari */
-    padding: 10px 10px;
+    padding: 10px;
 }
 
 
@@ -274,14 +291,14 @@ a {
 /*-----------------------------------------------CONTENT SPACE--------------------------------------------------*/
 .treasures {
     display: grid;
-    grid-template-rows: repeat(6, auto);
-    padding-left: 15px;
-    margin: 0;
-
+    grid-template-columns: repeat(6, auto);
+    /* Adjust to auto */
+    grid-auto-rows: 0;
+    /* Prevents empty rows from taking space */
 }
 
+
 .treasures img {
-    grid-row: 1;
     display: block;
     width: 80%;
     margin: 0 auto;
@@ -345,22 +362,42 @@ button {
 
     /* Styles for tablets and larger devices */
     body {
-        body {
-            font-size: 18px;
-            flex-direction: row;
-            justify-content: center;
-            background-image: url(dms-images/dm-stormy-wide.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 10vh;
-            margin: 0;
-            background-color: black;
-            overflow-x: hidden;
+        font-size: 18px;
+        flex-direction: row;
+        justify-content: center;
+        background-image: url(dms-images/dm-stormy-wide.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 10vh;
+        margin: 0;
+        background-color: black;
+        overflow-x: hidden;
+    }
 
-        }
+    .treasures {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        /* Use 1fr to distribute space equally */
+        grid-auto-rows: auto;
+        justify-items: center;
+        padding-left: 25%;
+        /* Add left padding to push items inward */
+        padding-right: 10%;
+        /* Optional: adjust right padding for balance */
+        width: 100%;
+        /* Full width for the grid */
+    }
 
+    .treasures img {
+        grid-column: span 1;
+        width: 50%;
+        /* Adjust width to fine-tune spacing */
+        justify-items: center;
+        margin-left: 0;
+        /* Prevent any unintended margin to the left */
 
     }
+
 }
 
 /*
