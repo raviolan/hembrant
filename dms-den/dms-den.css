@@ -52,7 +52,7 @@ h1 {
 
 .welcome-container h1 {
     color: #b59e28;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
     padding-top: 5px;
     text-shadow:
         0 0 10px black,
@@ -322,7 +322,6 @@ a {
     overflow-y: auto;
     /* Enable vertical scrolling */
     margin: 20px auto;
-    padding-top: 50px;
 }
 
 .dragon-story {
