@@ -322,7 +322,7 @@ a {
     overflow-y: auto;
     /* Enable vertical scrolling */
     margin: 20px auto;
-    /* Center horizontally with margin */
+    padding-top: 50px;
 }
 
 .dragon-story {
