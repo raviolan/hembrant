@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMs Lighthouse</title>
+    <link rel="stylesheet" type="text/css" href="dms-den.css" />
+    <style>
+        /* Hide the protected content by default */
+        #protected-content {
+            display: none;
+            margin-top: 40px;
+        }
+
+        /* Style for the shape options */
+        .shape-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 100px;
+        }
+
+        .shape-container img {
+            width: 100px;
+            /* Set a fixed size for images */
+            height: 100px;
+            cursor: pointer;
+            /* Show pointer on hover */
+            transition: transform 0.3s;
+            /* Smooth scaling effect */
+        }
+
+        .shape-container img:hover {
+            transform: scale(1.1);
+            /* Scale image on hover */
+        }
+
+        .error-message-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow:
+                0 0 10px #b59e28,
+                0 0 20px #b59e28;
+        }
+
+        #error-message {
+            color: goldenrod;
+            margin-top: 10px;
+            max-width: 400px;
+            padding: 10px;
+            padding-bottom: 30px;
+            border-radius: 5px;
+            overflow-wrap: break-word;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .shake {
+            animation: shake 0.5s;
+            /* Duration of the shake */
+        }
+    </style>
+
+    <script type="text/javascript">
+        function checkShape(shape) {
+            const errorMessage = document.getElementById("error-message");
+            const protectedContent = document.getElementById("protected-content");
+            const shapeContainer = document.querySelector('.shape-container');
+
+            // Define the correct shape here
+            const correctShape = 'eye'; // Change this to match the correct shape
+
+            if (shape === correctShape) {
+                // Display the protected content if the correct shape is clicked
+                protectedContent.style.display = "block";
+                shapeContainer.style.display = "none"; // Hide shape options
+                errorMessage.textContent = ""; // Clear any previous error message
+            } else {
+                // Customize error messages based on the incorrect shape clicked
+                let message;
+                switch (shape) {
+                    case 'sword':
+                        message = "In depths where lost tales lie in rest, a blade awaits, a sailor's quest. Through storms may crash and waters weep, find the steel where secrets sleep.";
+                        break;
+                    case 'door':
+                        message = "Behind the door where kobolds play, the dragon sleeps, its breath at bay. To seek treasure, you must test. Find the key where dragons rest.";
+                        break;
+                    case 'green':
+                        message = "In the temple where whispers dwell, the wise woman guards a secret spell. Climb to the heights where the horizon sings, and glimpse the truth that knowledge brings.";
+                        break;
+                    default:
+                        message = "Not here.";
+                }
+
+                errorMessage.textContent = message; // Set the custom error message
+                shapeContainer.classList.add("shake"); // Add shake class
+
+                // Remove shake class after animation ends
+                shapeContainer.addEventListener('animationend', function () {
+                    shapeContainer.classList.remove("shake");
+                }, { once: true });
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="dragon-container">
+        <a href="dragon-story.html"> <img src="dms-images/dragon.gif" alt="Flying Dragon" class="dragon"></a>
+    </div>
+    <div class="welcome-container">
+        <h3>In the maze of choices, paths intertwine, <br>One step you take may lead to a bind. <br>What glitters bright
+            may lead you astray, <br>Seek the shadow where truth holds sway.</h3>
+    </div>
+    <div id="protected-content">
+
+        <script src="dms-den.js"></script>
+        <section class="shrooms-image">
+            <img src="dms-images/shrooms.png" alt="">
+            <div class="welcome-container">
+                <h1 id="typing-text">Something is lurking in the caves.</h1>
+            </div>
+
+    </div>
+
+
+    </section>
+
+    <div class="shape-container">
+        <img src="dms-images/sword.png" alt="sword" onclick="checkShape('sword')">
+        <img src="dms-images/eye.png" alt="eye" onclick="checkShape('eye')">
+        <img src="dms-images/green.png" alt="green" onclick="checkShape('green')">
+        <img src="dms-images/door.png" alt="door" onclick="checkShape('door')">
+
+    </div>
+    <section class="error-message-container">
+        <div id="error-message"></div> <!-- Error message container -->
+    </section>
+
+
+
+    <section class="treasures">
+        <img src="dms-images/little-chest.png" alt="treasure chest">
+        <img src="dms-images/shrooms.png" alt="Something is lurking in the cave">
+        <img src="dms-images/compass.png" alt="">
+        <img src="dms-images/dice-sprite.png" alt="">
+        <a href="../drink-the-kool-aid.html"><img src="dms-images/campfire.png" alt="back to home"></a>
+
+    </section>
