@@ -80,3 +80,4 @@ function animateDragon() {
 
 // Start the animation
 animateDragon();
+

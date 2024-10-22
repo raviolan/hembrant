@@ -15,6 +15,7 @@ body {
 body {
     background-image: url(dms-images/dm-stormy-wide.png);
     background-size: cover;
+    background-color: black;
     /* Ensures the image always covers the entire screen */
     background-position: calc(15%) center;
     background-repeat: no-repeat;
@@ -41,18 +42,18 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 5px;
     font-family: 'JunigardenSwash';
     font-size: 1.5rem;
     text-align: center;
     text-wrap: wrap;
-    height: 300px;
+    height: 100px;
 }
 
 .welcome-container h1 {
     color: #b59e28;
-    padding-bottom: 40px;
-    padding-top: 80px;
+    padding-bottom: 5px;
+    padding-top: 5px;
     text-shadow:
         0 0 10px black,
         0 0 20px #b59e28,
@@ -94,6 +95,7 @@ h1 {
     /* Adds space between boxes */
     width: 100%;
     /* Full width of the container */
+    margin-top: -50px;
 }
 
 .wrap-collabsible {
@@ -290,6 +292,8 @@ a {
 
 
 /*-----------------------------------------------CONTENT SPACE--------------------------------------------------*/
+
+
 .long-story {
     display: grid;
     grid-template-columns: 1fr;
@@ -333,6 +337,7 @@ a {
     margin: 0 auto;
 
 }
+
 
 
 /* ------------------------- BUTTON SPACE --------------------------------------------*/
@@ -419,7 +424,7 @@ button {
 
     .treasures img {
         grid-column: span 1;
-        width: 50%;
+        width: 80%;
         /* Adjust width to fine-tune spacing */
         justify-items: center;
         margin-left: 0;

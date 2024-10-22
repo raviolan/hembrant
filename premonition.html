@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Detta är det som gör sidan responsiv-->
+    <title>u drank the kool-aid</title>
+    <link rel="stylesheet" type="text/css" href="premonition.css" />
+</head>
+
+<body>
+
+
+    <div class="welcome-container">
+        <h1 id="typing-text">You got a premontion</h1>
+    </div>
+    <script src="hembrant.js"></script> <!-- Link to JavaScript file -->
+    <!--  <div class="image-container">
+        <img src="raviimages/r-simple.png" alt="Ravi logga">
+        <img src="raviimages/ravi-main.png" alt="Main">
+        <img src="raviimages/ravi-sune.png" alt="Sune">
+        <img src="raviimages/sten-stina.png" alt="Sten-Stina">
+    </div>
+    -->
+    <section id=ghost-boxes>
+        <div class="wrap-collabsible">
+
+            <input id="collapsible2" class="toggle" type="checkbox">
+            <label for="collapsible2" class="lbl-toggle">Hints</label>
+            <div class="collapsible-content">
+                <div class="textbox">
+                    <p> In lands where shadows twist and twine,
+                        A beast of flame, both fierce and fine,
+                        Awaits where starlight’s gleam is bright,
+                        To guide your path through endless night.
+                        Seek not the sun, for it misguides,
+                        But follow the spark that never hides.
+                        Through skies and dreams, your journey far,
+                        bahamut is caught beneath the star </p>
+                </div>
+            </div>
+
+            <input id="collapsible4" class="toggle" type="checkbox">
+            <label for="collapsible4" class="lbl-toggle">Rewards</label>
+            <div class="collapsible-content">
+                <div class="textbox-surprise">
+                    <ul>
+                        <li><b>Easy:</b> Gold</li>
+                        <li><b>Medium:</b> 1d4 stackable bonus</li>
+                        <li><b>Hard:</b> Information</li>
+                        <li><b>Hard:</b> Extra cantrip</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer">
+            <a href="drink-the-kool-aid.html" class="footer-logo">
+                <img class="magic-potion" src="hembrant-images/magic-potion-bottle.png" alt="back to home">
+            </a>
+        </div>
+    </footer>
+
+    <!----------------------SCRIPTS------------------------------------------------->
+    <script>
+        document.querySelectorAll('.adventure-flags').forEach(flag => {
+            flag.addEventListener('click', function () {
+                // Toggle the 'active' class on click
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
