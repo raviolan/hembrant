@@ -358,22 +358,46 @@ a {
     padding-bottom: 30px;
 }
 
-
 .treasures {
-    display: grid;
-    grid-template-columns: repeat(6, auto);
-    /* Adjust to auto */
-    grid-auto-rows: 0;
-    /* Prevents empty rows from taking space */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    white-space: nowrap;
+    gap: 20px;
+    /* Add spacing between items */
+    overflow-x: auto;
+    /* Allows horizontal scroll if the row is too wide */
+    background: rgba(0, 0, 0, 0.30);
+    border: 2px inset #b59e28;
+    border-radius: 20px;
 }
 
+.treasures a {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #b59e28;
+    width: auto;
+    /* Removed the width here */
+}
 
 .treasures img {
-    display: block;
-    width: 80%;
-    margin: 0 auto;
-
+    width: 90px;
+    /* Fixed width for uniform size */
+    height: 90px;
+    /* Fixed height for uniform size */
+    object-fit: contain;
+    /* Ensures the image keeps its aspect ratio */
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
+
 
 .shape-container {
     display: flex;
@@ -452,29 +476,7 @@ button {
         overflow-x: hidden;
     }
 
-    .treasures {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        /* Use 1fr to distribute space equally */
-        grid-auto-rows: auto;
-        justify-items: center;
-        padding-left: 25%;
-        /* Add left padding to push items inward */
-        padding-right: 10%;
-        /* Optional: adjust right padding for balance */
-        width: 100%;
-        /* Full width for the grid */
-    }
 
-    .treasures img {
-        grid-column: span 1;
-        width: 80%;
-        /* Adjust width to fine-tune spacing */
-        justify-items: center;
-        margin-left: 0;
-        /* Prevent any unintended margin to the left */
-
-    }
 
 }
 
