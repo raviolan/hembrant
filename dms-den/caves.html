@@ -81,6 +81,78 @@
             animation: shake 0.5s;
             /* Duration of the shake */
         }
+
+        .input-name {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .input-name input,
+        .input-name button {
+            margin-top: 10px;
+        }
+
+        #character-name {
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #b59e28;
+            /* Goldenrod border */
+            background-color: #2a2a2a;
+            /* Dark background */
+            color: #ffffff;
+            /* White text */
+            font-size: 16px;
+            outline: none;
+            /* Remove default blue outline on focus */
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        /* Style the input box on focus */
+        #character-name:focus {
+            border-color: #f5c242;
+            /* Slightly brighter border on focus */
+        }
+
+        /* Style the submit button */
+        button {
+            padding: 10px 20px;
+            background-color: #b59e28;
+            /* Goldenrod background */
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+            /* Space between input and button */
+        }
+
+        /* Hover effect for the button */
+        button:hover {
+            background-color: #f5c242;
+            /* Lighter golden color on hover */
+        }
+
+        .output-info {
+            color: goldenrod
+        }
+
+        /* Responsive design - mobile-friendly adjustments */
+        @media (max-width: 600px) {
+            #character-name {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
     </style>
 
     <script type="text/javascript">
@@ -139,11 +211,34 @@
     <div id="protected-content">
 
         <script src="dms-den.js"></script>
-        <section class="shrooms-image">
-            <img src="dms-images/shrooms.png" alt="">
+        <div class="shrooms-image">
+            <img src="dms-images/shrooms.png" alt="shrooms" onclick="showInputSection()">
             <div class="welcome-container">
                 <h1 id="typing-text">Something is lurking in the caves.</h1>
             </div>
+        </div>
+
+        <section class="input-name">
+            <label for="character-name"></label>
+            <input type="text" id="character-name" placeholder="å du heter?" />
+            <button onclick="revealInfo()">Submit</button>
+
+            <div class="output-info">
+                <div id="tihildur-info" style="display: none;">
+                    <p>Dessa svampar är oerhört värdefulla! Handelsmän skulle betala en förmögenhet för dem</p>
+                </div>
+
+
+                <div id="kjell-info" style="display: none;">
+                    <p>Svamparna är fyllda med magiska krafter, ovärderliga i ritualer och trollformler.</p>
+                </div>
+
+
+                <div id="unknown-character" style="display: none;">
+                    <p>Du ser inget särskilt just nu.</p>
+                </div>
+            </div>
+        </section>
 
     </div>
 
@@ -173,3 +268,29 @@
         <a href="dms-lighthouse.html">Back to DM's Den<img src="dms-images/campfire.png" alt="Back to Lighthouse"></a>
 
     </section>
+    <script>
+        function revealInfo() {
+            // Get the value of the character name input field
+            var characterName = document.getElementById("character-name").value.toLowerCase();
+
+            // Hide all sections initially
+            document.getElementById("tihildur-info").style.display = "none";
+            document.getElementById("kjell-info").style.display = "none";
+            document.getElementById("unknown-character").style.display = "none";
+
+            // Check if the name matches a specific character and reveal the appropriate info
+            if (characterName.includes "tihildur") {
+                document.getElementById("tihildur-info").style.display = "block";
+            } else if (characterName.includes "kjell") {
+                document.getElementById("kjell-info").style.display = "block";
+            } else {
+                // If the name doesn't match Tihildur or Kjell, show a default message
+                document.getElementById("unknown-character").style.display = "block";
+            }
+        }
+        function showInputSection() {
+            var inputNameSection = document.querySelector('.input-name');
+            inputNameSection.style.display = 'flex'; // Show the section as flexbox
+        }
+
+    </script>
