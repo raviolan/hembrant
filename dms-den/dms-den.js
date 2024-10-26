@@ -189,8 +189,16 @@ document.getElementById("dice-link").addEventListener("click", function (event) 
             clearInterval(rollInterval);
             // Final roll
             const finalRoll = Math.floor(Math.random() * 20) + 1; // Roll between 1 and 20
-            resultDisplay.innerHTML = `You rolled a: ${finalRoll}`;
             dice.innerHTML = finalRoll; // Show the final number on the dice
+
+            // Display result message based on the rolled number
+            if (finalRoll === 1) {
+                resultDisplay.innerHTML = `Critical Fail! u rolled a ${finalRoll}.`;
+            } else if (finalRoll === 20) {
+                resultDisplay.innerHTML = `You rolled a: ${finalRoll}. Critical success!`;
+            } else {
+                resultDisplay.innerHTML = `You rolled a: ${finalRoll}`;
+            }
         }
     }, 100); // Update every 100 milliseconds
 });
