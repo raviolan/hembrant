@@ -41,58 +41,55 @@
             </p>
             <div class="spacer-div"></div>
 
-            </head>
+            <!-- Step 1: Encrypted Message -->
+            <h2>Start Your Quest:</h2>
+            <p id="clue1">Decode the message: <em>"Qbknltlua Hdhpaz"</em></p>
+            <div class="spacer-div"></div>
+            <input type="text" id="cipher-input" placeholder="Enter the decoded message"
+                style="width: 300px; height: 40px;" />
+            <div class="spacer-div"></div>
+            <button onclick="checkDecodedMessage()">Submit</button>
+            <p id="decode-error" style="color: red;"></p>
 
-            <body>
-                <!-- Step 1: Encrypted Message -->
-                <h2>Start Your Quest:</h2>
-                <p id="clue1">Decode the message: <em>"Qbknltlua Hdhpaz"</em></p>
-                <div class="spacer-div"></div>
-                <input type="text" id="cipher-input" placeholder="Enter the decoded message"
-                    style="width: 300px; height: 40px;" />
-                <div class="spacer-div"></div>
-                <button onclick="checkDecodedMessage()">Submit</button>
-                <p id="decode-error" style="color: red;"></p>
+            <!-- Step 2: Choose the Correct Path - Hidden initially -->
+            <div class="spacer-div"></div>
+            <div id="path-choice" class="hidden">
+                <h3>Choose the correct path</h3>
+                <img src="path1.jpg" alt="Path 1" onclick="showError()">
+                <img src="path2.jpg" alt="Path 2" onclick="showError()">
+                <img src="path3.jpg" alt="Path 3" onclick="showClue()">
+                <p id="path-error"></p>
+            </div>
 
-                <!-- Step 2: Choose the Correct Path - Hidden initially -->
-                <div class="spacer-div"></div>
-                <div id="path-choice" class="hidden">
-                    <h3>Choose the correct path</h3>
-                    <img src="path1.jpg" alt="Path 1" onclick="showError()">
-                    <img src="path2.jpg" alt="Path 2" onclick="showError()">
-                    <img src="path3.jpg" alt="Path 3" onclick="showClue()">
-                    <p id="path-error"></p>
+            <!-- Step 3: Password Gate - Hidden initially -->
+            <div class="spacer-div"></div>
+            <div id="password-gate" class="hidden">
+                <h3>Enter the password to proceed:</h3>
+                <input type="password" id="password">
+                <button onclick="checkPassword()">Submit</button>
+                <div id="password-error" class="error-message"></div> <!-- Password error message container -->
+
+                <div id="access-granted" class="hidden">
+                    <p>You have passed the gate. The relic lies near.</p>
                 </div>
+            </div>
 
-                <!-- Step 3: Password Gate - Hidden initially -->
-                <div class="spacer-div"></div>
-                <div id="password-gate" class="hidden">
-                    <h3>Enter the password to proceed:</h3>
-                    <input type="password" id="password">
-                    <button onclick="checkPassword()">Submit</button>
-                    <div id="password-error" class="error-message"></div> <!-- Password error message container -->
+            <!-- Step 4: Final Relic Reveal - Hidden initially -->
+            <div class="spacer-div"></div>
 
-                    <div id="access-granted" class="hidden">
-                        <p>You have passed the gate. The relic lies near.</p>
-                    </div>
-                </div>
-
-                <!-- Step 4: Final Relic Reveal - Hidden initially -->
-                <div class="spacer-div"></div>
-
-                <div class="spacer-div"></div>
-                <button id="reveal-relic-btn" class="hidden" onclick="showRelic()">Reveal Your Prize</button>
-                <div id="relic-display" class="hidden">
-                    <!-- Content for the revealed relic -->
-                    <h2>Embermaw's Grasp</h2>
-                    <img src="relic-image.jpg" alt="Embermaw's Grasp" style="animation: fadeIn 3s;">
-                    <p>Den mäktiga Embermaw's Grasp är nu din. När den används ger den styrka fylld av hämnd och
-                        förmågan
-                        att frammana drakeld. Prata med din DM under nästa spelmöte för att få tillgång till belöningen.
-                        <br><br>Embermaws eldar visar ingen nåd mot bedragare. Vandra varsamt, för den som luras
-                        riskerar att dömas i flammornas glöd.
-                    </p>
-                </div>
+            <div class="spacer-div"></div>
+            <button id="reveal-relic-btn" class="hidden" onclick="showRelic()">Reveal Your Prize</button>
+            <div id="relic-display" class="hidden">
+                <!-- Content for the revealed relic -->
+                <h2>Embermaw's Grasp</h2>
+                <img src="relic-image.jpg" alt="Embermaw's Grasp" style="animation: fadeIn 3s;">
+                <p>Den mäktiga Embermaw's Grasp är nu din. När den används ger den styrka fylld av hämnd och
+                    förmågan
+                    att frammana drakeld. Prata med din DM under nästa spelmöte för att få tillgång till belöningen.
+                    <br><br>Embermaws eldar visar ingen nåd mot bedragare. Vandra varsamt, för den som luras
+                    riskerar att dömas i flammornas glöd.
+                </p>
+            </div>
 
 
         </div>
