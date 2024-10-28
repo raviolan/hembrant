@@ -51,7 +51,7 @@
             <button onclick="checkDecodedMessage()">Submit</button>
             <p id="decode-error" style="color: red;"></p>
 
-            <!-- Step 2: Choose the Correct Path - Hidden initially -->
+            <!-- Step 2: Choose the Correct Path --->
             <div class="spacer-div"></div>
             <div id="path-choice" class="hidden">
                 <h3>Choose the correct path</h3>
@@ -61,24 +61,27 @@
                 <p id="path-error"></p>
             </div>
 
-            <!-- Step 3: Password Gate - Hidden initially -->
+            <!-- Step 3: Password Gate  -->
             <div class="spacer-div"></div>
             <div id="password-gate" class="hidden">
                 <h3>Enter the password to proceed:</h3>
-                <input type="password" id="password">
+                <div class="spacer-div"></div>
+                <input type="password" id="password" style="width: 300px; height: 40px;">
+                <div class="spacer-div"></div>
                 <button onclick="checkPassword()">Submit</button>
-                <div id="password-error" class="error-message"></div> <!-- Password error message container -->
-
+                <div class="spacer-div"></div>
+                <div id="password-error" class="error-message"></div>
                 <div id="access-granted" class="hidden">
                     <p>You have passed the gate. The relic lies near.</p>
                 </div>
             </div>
 
-            <!-- Step 4: Final Relic Reveal - Hidden initially -->
+            <!-- Step 4: Final Relic Reveal  -->
             <div class="spacer-div"></div>
 
             <div class="spacer-div"></div>
             <button id="reveal-relic-btn" class="hidden" onclick="showRelic()">Reveal Your Prize</button>
+
             <div id="relic-display" class="hidden">
                 <!-- Content for the revealed relic -->
                 <h2>Embermaw's Grasp</h2>
