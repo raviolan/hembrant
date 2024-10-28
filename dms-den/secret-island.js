@@ -127,10 +127,6 @@ function showInputSection() {
 let nameSubmitted = false; // Variable to track if a name has been submitted
 
 function revealInfo() {
-    // Check if a name has already been submitted
-    if (nameSubmitted) {
-        return; // Exit the function if a name has been submitted
-    }
 
     // Get the value of the character name input field
     var characterName = document.getElementById("character-name").value.toLowerCase();
