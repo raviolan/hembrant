@@ -228,3 +228,82 @@ function resizeImageMap() {
 // Run the function on load and on window resize
 window.addEventListener("load", resizeImageMap);
 window.addEventListener("resize", resizeImageMap);
+
+function checkDecodedMessage() {
+    const userInput = document.getElementById("cipher-input").value.trim();
+    const decodedMessage = "Embermaw's Judgement Awaits";
+
+    // Convert both to lowercase for a case-insensitive comparison
+    if (userInput.toLowerCase() === decodedMessage.toLowerCase()) {
+        document.getElementById("decode-error").innerText = ""; // Clear any error
+        document.getElementById("path-choice").classList.remove("hidden"); // Show path choices
+    } else {
+        // Array of incorrect messages
+        const incorrectMessages = [
+            "The flames of Embermaw sense your hesitation.",
+            "You have yet to prove your worthiness.",
+            "Only the worthy may tread this path; seek deeper.",
+            "The echoes of your ancestors whisper: not yet.",
+            "The fire waits for a stronger spirit.",
+            "You have not yet earned Embermaw's favor.",
+            "Your journey is not complete; the flames are still watching.",
+            "The flames flicker, revealing your uncertainty.",
+            "Embermaw's wrath is reserved for those unprepared."
+        ];
+
+        // Pick a random incorrect message
+        const randomIndex = Math.floor(Math.random() * incorrectMessages.length);
+        const randomMessage = incorrectMessages[randomIndex];
+        document.getElementById("decode-error").innerText = randomMessage; // Show a random incorrect message
+    }
+}
+
+
+// Step 2: Show error or clue for path choice
+function showError() {
+    // Get a random error message
+    const randomIndex = Math.floor(Math.random() * pathErrorMessages.length);
+    document.getElementById("path-error").innerText = pathErrorMessages[randomIndex];
+}
+
+function showClue() {
+    document.getElementById("path-error").innerText = "You have chosen wisely. Your next destination lies in the shadow of the dragon’s breath.";
+
+    // Show the password gate section
+    document.getElementById("password-gate").classList.remove("hidden");
+}
+
+
+// Array of error messages for incorrect password input
+const passwordErrorMessages = [
+    "The flames flicker, revealing that the secret name eludes you still.",
+    "Only those who truly understand fire may pass; try again.",
+    "The ashes of forgotten knowledge swirl around you; seek the true name.",
+    "Your words lack the heat of truth; the gate remains closed.",
+    "The ember's glow dims with each false attempt; remember the ancient whispers.",
+    "The path to Embermaw's heart is sealed by your uncertainty; find the right word."
+];
+
+// Step 3: Check password input
+function checkPassword() {
+    const password = document.getElementById("password").value;
+    if (password.toLowerCase() === "grasp") {
+        document.getElementById("access-granted").classList.remove("hidden");
+
+        // Show the button to reveal the relic
+        document.getElementById("reveal-relic-btn").classList.remove("hidden");
+    } else {
+        // Get a random error message for incorrect password
+        const randomIndex = Math.floor(Math.random() * passwordErrorMessages.length);
+        document.getElementById("password-error").innerText = passwordErrorMessages[randomIndex];
+    }
+}
+
+
+function showRelic() {
+    // Hide the "Reveal Your Prize" button
+    document.getElementById("reveal-relic-btn").style.display = "none";
+
+    // Display the relic or any other actions for revealing the prize
+    document.getElementById("relic-display").classList.remove("hidden");
+}
