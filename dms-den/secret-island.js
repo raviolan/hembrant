@@ -231,7 +231,7 @@ window.addEventListener("resize", resizeImageMap);
 
 function checkDecodedMessage() {
     const userInput = document.getElementById("cipher-input").value.trim();
-    const decodedMessage = "Embermaw's Judgement Awaits";
+    const decodedMessage = "Judgement Awaits";
 
     // Convert both to lowercase for a case-insensitive comparison
     if (userInput.toLowerCase() === decodedMessage.toLowerCase()) {
