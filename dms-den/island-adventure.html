@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMs Lighthouse</title>
+    <link rel="stylesheet" type="text/css" href="secret-island.css" />
+
+</head>
+
+<body>
+
+
+    <div class="welcome-container">
+        <h3>Välkommen till den hemliga ön.</h3>
+    </div>
+
+    <div class="welcome-container">
+        <h1>Valkrath.</h1>
+    </div>
+    <div class="long-story">
+        <div class="dragon-story">
+            <p>Du vet inte varför, men en uråldrig kraft pulserar genom dig – ett minne som inte är ditt eget, en
+                viskning
+                från
+                dina drakättlingar. De kallar på dig, deras andar som flammar likt osynliga eldar längs din väg. Du
+                känner
+                en
+                dragning, stark och oförklarlig, som om själva ödet sträcker sig mot dig. Och innerst inne vet du: vägen
+                du
+                går
+                är avgörande. Att följa den är inte ett val, utan en del av den du är. <br><br> I det heliga biblioteket
+                bor berättelser om glömda arv. Bland texterna, sök den som talar om en uråldrig ö, gömd för alla som
+                inte hedrar sina löften. Denna ö finns inte på någon fysisk karta; den kan endast hittas av dem som går
+                på rättfärdighetens väg. Lyssna noga, för ekona av dina förfäder kallar på dig och påminner dig om att
+                sann styrka ligger i att hålla ditt löfte, annars väcker du Embermaws vrede.
+                <br><br>Endast den sanna kan fortsätta. De som utger sig för att vara Valkrath bjuder in de uråldriga
+                lågornas vrede.
+
+            </p>
+            <div class="spacer-div"></div>
+            <style>
+                /* Styling for the animations and positioning */
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+
+                    to {
+                        opacity: 1;
+                    }
+                }
+
+                .hidden {
+                    display: none;
+                }
+
+                #path-error {
+                    color: red;
+                }
+            </style>
+            </head>
+
+            <body>
+                <!-- Step 1: Encrypted Message -->
+                <h2>Start Your Quest:</h2>
+                <p id="clue1">Decode the message: <em>"Ltilythd'z Qbknltlua Hdhpaz"</em></p>
+                <div class="spacer-div"></div>
+                <input type="text" id="cipher-input" placeholder="Enter the decoded message"
+                    style="width: 300px; height: 40px; font-size: 18px;" />
+                <div class="spacer-div"></div>
+                <button onclick="checkDecodedMessage()">Submit</button>
+                <p id="decode-error" style="color: red;"></p>
+
+                <!-- Step 2: Choose the Correct Path - Hidden initially -->
+                <div class="spacer-div"></div>
+                <div id="path-choice" class="hidden">
+                    <h3>Choose the correct path</h3>
+                    <img src="path1.jpg" alt="Path 1" onclick="showError()">
+                    <img src="path2.jpg" alt="Path 2" onclick="showError()">
+                    <img src="path3.jpg" alt="Path 3" onclick="showClue()">
+                    <p id="path-error"></p>
+                </div>
+
+                <!-- Step 3: Password Gate - Hidden initially -->
+                <div class="spacer-div"></div>
+                <div id="password-gate" class="hidden">
+                    <h3>Enter the password to proceed:</h3>
+                    <input type="password" id="password">
+                    <button onclick="checkPassword()">Submit</button>
+                    <div id="password-error" class="error-message"></div> <!-- Password error message container -->
+
+                    <div id="access-granted" class="hidden">
+                        <p>You have passed the gate. The relic lies near.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4: Final Relic Reveal - Hidden initially -->
+                <div class="spacer-div"></div>
+
+                <div class="spacer-div"></div>
+                <button id="reveal-relic-btn" class="hidden" onclick="showRelic()">Reveal Your Prize</button>
+                <div id="relic-display" class="hidden">
+                    <!-- Content for the revealed relic -->
+                    <h2>Embermaw's Grasp</h2>
+                    <img src="relic-image.jpg" alt="Embermaw's Grasp" style="animation: fadeIn 3s;">
+                    <p>Den mäktiga Embermaw's Grasp är nu din. När den används ger den styrka fylld av hämnd och
+                        förmågan
+                        att frammana drakeld. Prata med din DM under nästa spelmöte för att få tillgång till belöningen.
+                        <br><br>Embermaws eldar visar ingen nåd mot bedragare. Vandra varsamt, för den som luras
+                        riskerar att dömas i flammornas glöd.
+                    </p>
+                </div>
+
+
+                <script>
+                    function checkDecodedMessage() {
+                        const userInput = document.getElementById("cipher-input").value.trim();
+                        const decodedMessage = "Embermaw's Judgement Awaits";  // Correct decoded message
+
+                        // Array of incorrect messages
+                        const incorrectMessages = [
+                            "The flames of Embermaw sense your hesitation.",
+                            "You have yet to prove your worthiness.",
+                            "Only the worthy may tread this path; seek deeper.",
+                            "The echoes of your ancestors whisper: not yet.",
+                            "The fire waits for a stronger spirit.",
+                            "You have not yet earned Embermaw's favor.",
+                            "Your journey is not complete; the flames are still watching.",
+                            "The flames flicker, revealing your uncertainty.",
+                            "Embermaw's wrath is reserved for those unprepared."
+                        ];
+
+                        if (userInput === decodedMessage) {
+                            document.getElementById("decode-error").innerText = ""; // Clear any error
+                            document.getElementById("path-choice").classList.remove("hidden"); // Show path choices
+                        } else {
+                            // Pick a random incorrect message
+                            const randomIndex = Math.floor(Math.random() * incorrectMessages.length);
+                            const randomMessage = incorrectMessages[randomIndex];
+                            document.getElementById("decode-error").innerText = randomMessage; // Show a random incorrect message
+                        }
+                    }
+
+                    // Array of error messages for incorrect path choice
+                    const pathErrorMessages = [
+                        "The winds of fate whisper of your misstep; retrace your steps.",
+                        "You have strayed from the righteous path; darkness awaits those who falter.",
+                        "Your choice echoes through the void; only the brave may proceed.",
+                        "The flames of Embermaw flicker in disappointment; choose again.",
+                        "Shadows gather around your misdirection; seek the true path.",
+                        "The path you tread is perilous; listen to your heart before you act."
+                    ];
+
+                    // Step 2: Show error or clue for path choice
+                    function showError() {
+                        // Get a random error message
+                        const randomIndex = Math.floor(Math.random() * pathErrorMessages.length);
+                        document.getElementById("path-error").innerText = pathErrorMessages[randomIndex];
+                    }
+
+                    function showClue() {
+                        document.getElementById("path-error").innerText = "You have chosen wisely. Your next destination lies in the shadow of the dragon’s breath.";
+
+                        // Show the password gate section
+                        document.getElementById("password-gate").classList.remove("hidden");
+                    }
+
+
+                    // Array of error messages for incorrect password input
+                    const passwordErrorMessages = [
+                        "The flames flicker, revealing that the secret name eludes you still.",
+                        "Only those who truly understand fire may pass; try again.",
+                        "The ashes of forgotten knowledge swirl around you; seek the true name.",
+                        "Your words lack the heat of truth; the gate remains closed.",
+                        "The ember's glow dims with each false attempt; remember the ancient whispers.",
+                        "The path to Embermaw's heart is sealed by your uncertainty; find the right word."
+                    ];
+
+                    // Step 3: Check password input
+                    function checkPassword() {
+                        const password = document.getElementById("password").value;
+                        if (password.toLowerCase() === "grasp") {
+                            document.getElementById("access-granted").classList.remove("hidden");
+
+                            // Show the button to reveal the relic
+                            document.getElementById("reveal-relic-btn").classList.remove("hidden");
+                        } else {
+                            // Get a random error message for incorrect password
+                            const randomIndex = Math.floor(Math.random() * passwordErrorMessages.length);
+                            document.getElementById("password-error").innerText = passwordErrorMessages[randomIndex];
+                        }
+                    }
+
+
+                    function showRelic() {
+                        // Hide the "Reveal Your Prize" button
+                        document.getElementById("reveal-relic-btn").style.display = "none";
+
+                        // Display the relic or any other actions for revealing the prize
+                        document.getElementById("relic-display").classList.remove("hidden");
+                    }
+
+                </script>
+
+        </div>
+    </div>
+
+
+
+
+    <section class="treasures">
+        <a href="dms-lighthouse.html">Back to DM's Den<img src="dms-images/campfire.png" alt="Back to Lighthouse"></a>
+        <script src="secret-island.js"></script>
+    </section>
+</body>
+
+
+</html>
