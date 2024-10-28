@@ -5,6 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let index = 0; // Start at the first character
 
     h1Element.innerHTML = ''; // Clear the initial text
+    function checkDecodedMessage() {
+        const userInput = document.getElementById("cipher-input").value.trim();
+        const decodedMessage = "Judgement Awaits";
+        if (userInput.toLowerCase() === decodedMessage.toLowerCase()) {
+            console.log("Decoded correctly, showing path-choice.");
+            document.getElementById("path-choice").classList.remove("hidden");
+        } else {
+            console.log("Decoding failed, showing error message.");
+            // Error handling code...
+        }
+    }
 
     // Function to type the text
     function type() {
