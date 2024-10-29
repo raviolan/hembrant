@@ -21,15 +21,47 @@
     <section class="map-image">
         <img src="dms-images/stormwreck-isle-half.png" usemap="#image-map">
         <map name="image-map">
-            <area target="" alt="sword-wreck" title="sword-wreck" href="#" coords="244,194,205,154" shape="rect">
+            <area target="" alt="sword-wreck" title="sword-wreck" href="#" data-original-coords="244,194,205,154"
+                shape="rect">
             <area target="" alt="secret-island" title="secret-island" href="secret-island.html"
-                coords="507,142,493,164,502,189,527,194,538,178,532,154" shape="poly">
-            <area target="" alt="eye-caves" title="eye-caves" href="#" coords="206,446,22" shape="circle">
-            <area target="" alt="green-observatory" title="green-observatory" href="#" coords="443,477,21"
+                data-original-coords="507,142,493,164,502,189,527,194,538,178,532,154" shape="poly">
+            <area target="" alt="eye-caves" title="eye-caves" href="#" data-original-coords="206,446,22" shape="circle">
+            <area target="" alt="green-observatory" title="green-observatory" href="#" data-original-coords="443,477,21"
                 shape="circle">
-            <area target="" alt="door-rest" title="door-rest" href="#" coords="338,331,305,297" shape="rect">
+            <area target="" alt="door-rest" title="door-rest" href="#" data-original-coords="338,331,305,297"
+                shape="rect">
         </map>
+
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", adjustMapAreas);
+        window.addEventListener("resize", adjustMapAreas);
+
+        function adjustMapAreas() {
+            const img = document.querySelector('.map-image img');
+            const originalWidth = 800; // Replace this with your original image width
+            const originalHeight = 600; // Replace this with your original image height
+
+            // Calculate the scaling factors
+            const scaleX = img.clientWidth / originalWidth;
+            const scaleY = img.clientHeight / originalHeight;
+
+            // Set an offset for mobile (only applied when screen width is less than 768px)
+            const offsetX = window.innerWidth < 768 ? -10 : 0; // Adjust -10 to your preference for how much leftward offset you need
+
+            // Update each area based on the scale and offset
+            document.querySelectorAll('area').forEach((area) => {
+                const coords = area.getAttribute('data-original-coords').split(',').map(Number);
+                const newCoords = coords.map((value, index) =>
+                    index % 2 === 0
+                        ? Math.round(value * scaleX) + offsetX // Apply the offset to X coordinates
+                        : Math.round(value * scaleY)
+                );
+                area.coords = newCoords.join(',');
+            });
+        }
+    </script>
+
 
 
 
