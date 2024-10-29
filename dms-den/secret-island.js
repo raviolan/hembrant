@@ -183,31 +183,39 @@ function checkDecodedMessage() {
     }
 }
 
+// Define the choosePath function in the global scope
+function choosePath(path) {
+    const pathMessages = {
+        sacrifice: "You have chosen the Path of Sacrifice. Your heart is heavy, yet your resolve is unwavering. Innocents will be safe because of your selflessness. No treasure, but great conscience.",
+        vengeance: "You have chosen the Path of Vengeance. The flames of retribution will guide your hand, but be wary of the darkness it may sow within your soul. No treasure, your path is still open.",
+        redemption: "You have chosen the Path of Redemption. You choose to offer mercy to a fallen foe, striving to redeem their soul, even if it means endangering your own. You may continue."
+    };
 
-// Step 2: Show error or clue for path choice
-function showError() {
-    // Get a random error message
-    const randomIndex = Math.floor(Math.random() * pathErrorMessages.length);
-    document.getElementById("path-error").innerText = pathErrorMessages[randomIndex];
+    const pathMessageElement = document.getElementById("path-message");
+
+    if (pathMessageElement) {
+        // Set and display the message for the selected path
+        pathMessageElement.innerText = pathMessages[path];
+        pathMessageElement.style.display = "block";
+    }
+
+    // Show the password gate if the chosen path is "redemption"
+    if (path === "redemption") {
+        const passwordGate = document.getElementById("password-gate");
+        if (passwordGate) {
+            passwordGate.classList.remove("hidden");
+        }
+    }
 }
 
-function showClue() {
-    document.getElementById("path-error").innerText = "You have chosen wisely. Your next destination lies in the shadow of the dragon’s breath.";
-
-    // Show the password gate section
-    document.getElementById("password-gate").classList.remove("hidden");
-}
+// Run additional setup after DOM has loaded, if needed
+document.addEventListener("DOMContentLoaded", () => {
+    // Any other DOM-related setup can go here
+});
 
 
-// Array of error messages for incorrect password input
-const passwordErrorMessages = [
-    "The flames flicker, revealing that the secret name eludes you still.",
-    "Only those who truly understand fire may pass; try again.",
-    "The ashes of forgotten knowledge swirl around you; seek the true name.",
-    "Your words lack the heat of truth; the gate remains closed.",
-    "The ember's glow dims with each false attempt; remember the ancient whispers.",
-    "The path to Embermaw's heart is sealed by your uncertainty; find the right word."
-];
+
+
 
 // Step 3: Check password input
 function checkPassword() {
@@ -218,13 +226,23 @@ function checkPassword() {
         // Show the button to reveal the relic
         document.getElementById("reveal-relic-btn").classList.remove("hidden");
     } else {
+        // Array of error messages for incorrect password
+        const passwordErrorMessages = [
+            "The flames flicker, revealing that the secret name eludes you still.",
+            "Only those who truly understand fire may pass; try again.",
+            "The ashes of forgotten knowledge swirl around you; seek the true name.",
+            "Your words lack the heat of truth; the gate remains closed.",
+            "The ember's glow dims with each false attempt; remember the ancient whispers.",
+            "The path to Embermaw's heart is sealed by your uncertainty; find the right word."
+        ];
+
         // Get a random error message for incorrect password
         const randomIndex = Math.floor(Math.random() * passwordErrorMessages.length);
         document.getElementById("password-error").innerText = passwordErrorMessages[randomIndex];
     }
 }
 
-
+// Function to show the relic
 function showRelic() {
     // Hide the "Reveal Your Prize" button
     document.getElementById("reveal-relic-btn").style.display = "none";
