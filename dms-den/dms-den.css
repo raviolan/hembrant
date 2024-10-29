@@ -25,6 +25,20 @@ body {
 }
 
 
+.map-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.map-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    justify-self: center;
+    align-items: center;
+}
 
 @font-face {
     font-family: JunigardenSwash;
@@ -644,7 +658,7 @@ button {
 }
 
 area {
-    outline: 2px solid red;
+    outline: 1px solid goldenrod;
     /* Only for debugging; remove after confirming areas */
 }
 
