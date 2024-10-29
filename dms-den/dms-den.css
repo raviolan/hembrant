@@ -347,17 +347,6 @@ a {
     /* Justified text for better readability */
 }
 
-.map-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.map-section img {
-    display: block;
-    width: 80%;
-    padding-bottom: 30px;
-}
 
 .shrooms-image {
     display: flex;
