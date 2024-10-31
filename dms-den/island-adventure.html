@@ -40,22 +40,22 @@
 
             </p>
             <div class="spacer-div"></div>
+            <div class="center-fields">
+                <!-- Step 1: Encrypted Message -->
+                <h2>Start Your Quest:</h2>
+                <p id="clue1">Decode the message: <em>"Qbknltlua Hdhpaz"</em></p>
+                <div class="spacer-div"></div>
+                <input type="text" id="cipher-input" placeholder="Enter the decoded message"
+                    style="width: 300px; height: 40px;" />
+                <div class="spacer-div"></div>
+                <button onclick="checkDecodedMessage()">Submit</button>
+                <p id="decode-error" style="color: red;"></p>
+            </div>
 
-            <!-- Step 1: Encrypted Message -->
-            <h2>Start Your Quest:</h2>
-            <p id="clue1">Decode the message: <em>"Qbknltlua Hdhpaz"</em></p>
-            <div class="spacer-div"></div>
-            <input type="text" id="cipher-input" placeholder="Enter the decoded message"
-                style="width: 300px; height: 40px;" />
-            <div class="spacer-div"></div>
-            <button onclick="checkDecodedMessage()">Submit</button>
-            <p id="decode-error" style="color: red;"></p>
-        </div>
-
-        <!-- Path Selection -->
-        <div id="path-choice" class="hidden">
-            <h3 style="text-align: center; margin-bottom: 20px; color: goldenrod">Choose the correct path</h3>
-            <div style="
+            <!-- Path Selection -->
+            <div id="path-choice" class="hidden">
+                <h3 style="text-align: center; margin-bottom: 20px; color: goldenrod">Choose the correct path</h3>
+                <div style="
         display: flex; 
         justify-content: space-around; 
         align-items: center; 
@@ -66,80 +66,84 @@
         padding: 10px; 
         box-sizing: border-box;
     ">
-                <div style="flex: 1; display: flex; justify-content: center;">
-                    <img src="dms-images/path-shield.png" alt="Path of Sacrifice" onclick="choosePath('sacrifice')"
-                        style="width: 100%; max-width: 300px; height: auto; cursor: pointer; transition: transform 0.3s;">
+                    <div style="flex: 1; display: flex; justify-content: center;">
+                        <img src="dms-images/path-shield.png" alt="Path of Sacrifice" onclick="choosePath('sacrifice')"
+                            style="width: 100%; max-width: 300px; height: auto; cursor: pointer; transition: transform 0.3s;">
+                    </div>
+                    <div style="flex: 1; display: flex; justify-content: center;">
+                        <img src="dms-images/path-angel.png" alt="Path of Vengeance" onclick="choosePath('vengeance')"
+                            style="width: 100%; max-width: 300px; height: auto; cursor: pointer; transition: transform 0.3s;">
+                    </div>
+                    <div style="flex: 1; display: flex; justify-content: center;">
+                        <img src="dms-images/path-scale.png" alt="Path of Redemption" onclick="choosePath('redemption')"
+                            style="width: 100%; max-width: 300px; height: auto; cursor: pointer; transition: transform 0.3s;">
+                    </div>
                 </div>
-                <div style="flex: 1; display: flex; justify-content: center;">
-                    <img src="dms-images/path-angel.png" alt="Path of Vengeance" onclick="choosePath('vengeance')"
-                        style="width: 100%; max-width: 300px; height: auto; cursor: pointer; transition: transform 0.3s;">
+            </div>
+
+            <!-- Path message (Initially hidden) -->
+            <div id="path-message"
+                style="display: none; text-align: center; margin-top: 15px; color: goldenrod; font-weight: bold;"></div>
+
+
+            <!-- Optional: Add hover effect directly in HTML using inline JavaScript for scaling -->
+            <script>
+                document.querySelectorAll('#path-choice img').forEach(img => {
+                    img.addEventListener('mouseover', () => img.style.transform = 'scale(1.05)');
+                    img.addEventListener('mouseout', () => img.style.transform = 'scale(1)');
+                });
+            </script>
+
+
+
+
+
+            <!-- Password Gate (Initially Hidden) -->
+            <div class="spacer-div"></div>
+            <div id="password-gate" class="hidden">
+                <h3 style="text-align: center; margin-bottom: 20px; color: goldenrod">Enter the password to proceed:
+                </h3>
+                <div class="spacer-div"></div>
+                <input type="password" id="password" style="width: 300px; height: 40px;">
+                <button onclick="checkPassword()">Submit</button>
+                <div class="spacer-div"></div>
+                <div id="password-error"></div>
+                <div id="access-granted" class="hidden">
+                    <p style="text-align: center; margin-bottom: 20px; color: goldenrod">You have passed the gate. The
+                        relic
+                        lies near.</p>
                 </div>
-                <div style="flex: 1; display: flex; justify-content: center;">
-                    <img src="dms-images/path-scale.png" alt="Path of Redemption" onclick="choosePath('redemption')"
-                        style="width: 100%; max-width: 300px; height: auto; cursor: pointer; transition: transform 0.3s;">
-                </div>
+            </div>
+
+
+
+
+
+
+            <!-- Step 4: Final Relic Reveal  -->
+            <div class="spacer-div"></div>
+
+            <div class="spacer-div"></div>
+            <button id="reveal-relic-btn" class="hidden" onclick="showRelic()">Reveal Your Prize</button>
+
+            <div id="relic-display" class="hidden">
+                <!-- Content for the revealed relic -->
+                <h2 style="text-align: center; margin-bottom: 20px; color: goldenrod">Embermaw's Grasp</h2>
+                <img src="dms-images/embermaw-grasp.png" alt="Embermaw's Grasp"
+                    style="animation: fadeIn 3s; width: 40%;">
+                <p style="text-align: center; margin-bottom: 20px; color: goldenrod">Den mäktiga Embermaw's Grasp är nu
+                    din.
+                    När den används ger den styrka fylld av hämnd och
+                    förmågan
+                    att frammana drakeld. Prata med din DM under nästa spelmöte för att få tillgång till belöningen.
+                    <br><br>Embermaws eldar visar ingen nåd mot bedragare. Vandra varsamt, för den som luras
+                    riskerar att dömas i flammornas glöd.
+                </p>
             </div>
         </div>
 
-        <!-- Path message (Initially hidden) -->
-        <div id="path-message"
-            style="display: none; text-align: center; margin-top: 15px; color: goldenrod; font-weight: bold;"></div>
 
-
-        <!-- Optional: Add hover effect directly in HTML using inline JavaScript for scaling -->
-        <script>
-            document.querySelectorAll('#path-choice img').forEach(img => {
-                img.addEventListener('mouseover', () => img.style.transform = 'scale(1.05)');
-                img.addEventListener('mouseout', () => img.style.transform = 'scale(1)');
-            });
-        </script>
-
-
-
-
-
-        <!-- Password Gate (Initially Hidden) -->
-        <div class="spacer-div"></div>
-        <div id="password-gate" class="hidden">
-            <h3 style="text-align: center; margin-bottom: 20px; color: goldenrod">Enter the password to proceed:</h3>
-            <div class="spacer-div"></div>
-            <input type="password" id="password" style="width: 300px; height: 40px;">
-            <button onclick="checkPassword()">Submit</button>
-            <div class="spacer-div"></div>
-            <div id="password-error"></div>
-            <div id="access-granted" class="hidden">
-                <p style="text-align: center; margin-bottom: 20px; color: goldenrod">You have passed the gate. The relic
-                    lies near.</p>
-            </div>
-        </div>
-
-
-
-
-
-
-        <!-- Step 4: Final Relic Reveal  -->
-        <div class="spacer-div"></div>
-
-        <div class="spacer-div"></div>
-        <button id="reveal-relic-btn" class="hidden" onclick="showRelic()">Reveal Your Prize</button>
-
-        <div id="relic-display" class="hidden">
-            <!-- Content for the revealed relic -->
-            <h2 style="text-align: center; margin-bottom: 20px; color: goldenrod">Embermaw's Grasp</h2>
-            <img src="dms-images/embermaw-grasp.png" alt="Embermaw's Grasp" style="animation: fadeIn 3s; width: 40%;">
-            <p style="text-align: center; margin-bottom: 20px; color: goldenrod">Den mäktiga Embermaw's Grasp är nu din.
-                När den används ger den styrka fylld av hämnd och
-                förmågan
-                att frammana drakeld. Prata med din DM under nästa spelmöte för att få tillgång till belöningen.
-                <br><br>Embermaws eldar visar ingen nåd mot bedragare. Vandra varsamt, för den som luras
-                riskerar att dömas i flammornas glöd.
-            </p>
-        </div>
     </div>
-
-
-
 
 
     <section class="treasures">
