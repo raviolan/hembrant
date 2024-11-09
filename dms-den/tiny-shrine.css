@@ -13,7 +13,7 @@ body {
 }
 
 body {
-    background-image: url(dms-images/dm-stormy-wide.png);
+    background-image: url(dms-images/tiny-shrine-bg.png);
     background-size: cover;
     background-color: black;
     /* Ensures the image always covers the entire screen */
@@ -263,7 +263,7 @@ a {
     border: 2px inset #b59e28;
     border-radius: 20px;
     -webkit-transition-duration: 0.4s;
-    padding: 10px 10px;
+    padding: 10px;
     height: 300px;
     overflow-y: auto;
     overflow-wrap: break-word;
@@ -432,6 +432,20 @@ a {
 #protected-content {
     display: none;
     margin-top: 40px;
+
+}
+
+.mielikki {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    color: goldenrod;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.65);
+
 }
 
 /* Style for the shape options */
@@ -678,7 +692,7 @@ area {
         font-size: 18px;
         flex-direction: row;
         justify-content: center;
-        background-image: url(dms-images/dm-stormy-wide.png);
+        background-image: url(dms-images/tiny-shrine-bg.png);
         background-size: cover;
         background-repeat: no-repeat;
         height: 10vh;

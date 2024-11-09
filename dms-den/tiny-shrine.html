@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMs Lighthouse</title>
+    <link rel="stylesheet" type="text/css" href="tiny-shrine.css" />
+    <style>
+        /* Hide the protected content by default */
+        #protected-content {
+            display: none;
+            margin-top: 40px;
+        }
+
+        /* Style for the password input */
+        .password-container {
+            margin: 200px 0 200px;
+            text-align: center;
+        }
+
+        .password-container input {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .password-container button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .messages {
+            display: flex;
+            justify-self: center;
+            align-items: center;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <div class="welcome-container">
+        <h3>“Who is your god?”</h3>
+    </div>
+    <section>
+        <div class="spacer-div"></div>
+    </section>
+    <!-- Password input section -->
+    <div id="password-container" class="password-container">
+        <input type="text" id="password-input" placeholder="Worship thy name">
+
+        <button type="button" onclick="checkPassword()">Pray</button>
+
+        <div id="error-message" style="color: goldenrod; margin-top: 10px;"></div> <!-- Error message container -->
+    </div>
+
+    <div id="protected-content">
+        <div class="mielikki">
+            <h3>You pray to Mielikki, feeling the spirit of nature fill you up. <br><br></h3>
+            <p>The trees whisper, their leaves rustling in the moonlight. A riddle emerges, as sweet as the earth's
+                breath: <br><br>
+
+                "What is born in warmth, cherished by all, <br>
+                A symbol of peace, where joy may fall? <br>
+                Deep in the quiet, there's one thing sweet,<br>
+                A taste of comfort, a soft retreat. <br>
+                Though I walk the forests, rich and grand, <br>
+                A touch of civility rests in my hand. <br>
+                <em>What am I?</em> <br><br>
+
+                Kjell, only you hear the answer in your heart, whispered through the winds of Mielikki and from the
+                deepest corners in your childhood memories. <br><br>
+                Speak the answer to your DM, and a reward awaits you, one that comes from the kindness of the wilds.
+            </p>
+        </div>
+    </div> <!-- End of protected content -->
+
+
+    <section class="treasures">
+        <a href="#">Coming Soon<img src="dms-images/little-chest.png" alt="treasure chest"></a>
+        <a href="caves.html">Maze of Choices<img src="dms-images/shrooms.png" style="cursor: pointer;"></a>
+        <a href="bonus-map.html">Whispered directions<img src="dms-images/compass.png" alt=""></a>
+        <a href="#" id="dice-link">Test your fortune<img src="dms-images/dice-sprite.png" alt="dice sprite"></a>
+        <a href="../drink-the-kool-aid.html">Back to Entrance<img src="../hembrant-images/magic-potion-bottle.png"
+                alt="back to home"></a>
+        <a href="dms-lighthouse.html">Back to DM's Den<img src="dms-images/campfire.png" alt="Back to Lighthouse"></a>
+
+        <!-- Dice Roll Container -->
+        <div class="dice-container" id="dice-container">
+            <div class="dice" id="dice">👹</div>
+            <div class="result" id="result"></div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        function checkPassword() {
+            var passwordInput = document.getElementById("password-input").value.trim().toLowerCase();
+            var errorMessage = document.getElementById("error-message");
+            var passwordField = document.getElementById("password-input");
+
+            // Define messages based on the input
+            var messages = {
+                "odin": "Odin, the All-Father, watches over you. Your path is filled with wisdom and power.",
+                "zeus": "Zeus, king of the gods, bestows his thunder upon you. Be ready for a mighty trial.",
+                "thor": "Thor's hammer is in your grasp. Strength and courage will guide you."
+
+
+            };
+
+            // Check if the input matches the password
+            if (passwordInput === "mielikki") {
+                // Display the protected content if the password is correct
+                document.getElementById("protected-content").style.display = "block";
+                document.getElementById("password-container").style.display = "none"; // Hide password input
+                errorMessage.textContent = ""; // Clear any previous error message
+            } else if (messages[passwordInput]) {
+                // Display the custom message for other names
+                errorMessage.textContent = messages[passwordInput];
+            } else {
+                // Show a generic error message
+                errorMessage.textContent = "Pray to your god somewhere else.";
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
