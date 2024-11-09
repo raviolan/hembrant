@@ -55,7 +55,7 @@
 
         <button type="button" onclick="checkPassword()">Pray</button>
 
-        <div id="error-message" style="color: goldenrod; margin-top: 10px;"></div> <!-- Error message container -->
+        <div id="error-message" class="message-container"></div> <!-- Error message container -->
     </div>
 
     <div id="protected-content">
@@ -104,9 +104,23 @@
 
             // Define messages based on the input
             var messages = {
-                "odin": "Odin, the All-Father, watches over you. Your path is filled with wisdom and power.",
-                "zeus": "Zeus, king of the gods, bestows his thunder upon you. Be ready for a mighty trial.",
-                "thor": "Thor's hammer is in your grasp. Strength and courage will guide you."
+                "loviatar": "Pain is not your enemy, mortal, it is your salvation. With each strike, you grow stronger. The weak succumb to the agony, while the strong thrive under its caress. The scourge of my favor will guide you, should you dare to walk the path of mastery through torment. Embrace it",
+                "sune": "True beauty is not merely seen, it is felt. It blooms from the soul and bursts into the world like the brightest flame. Love is a gift for those who dare to seek it, and beauty follows them like a faithful shadow. Cherish the fleeting moments of beauty that life offers, for they are as radiant as the dawn.",
+                "mystra": "The weave of magic is not just a tool, but the very fabric of existence. It binds the world together, just as a thread weaves a tapestry. Seek its understanding, and you will uncover the true wonders of the cosmos. But remember, every spell is a choice, and the weave never forgets.",
+                "myrkul": "Death is the end that all must face, and I am its herald. Your time is but a fleeting moment, and all things must fade. The flesh rots, but the soul endures, entering my domain where it will rest eternally. Struggle, defy, flee, but in the end, you will join me—whether you are ready or not.",
+                "selune": "Look to the heavens, mortal, for they hold secrets older than time. The moon is my watchful eye, ever guiding the lost and the wandering. In its light, you may find truth, or be led astray by shadows. Choose wisely, for the night holds both beauty and peril.",
+                "selûne": "Look to the heavens, mortal, for they hold secrets older than time. The moon is my watchful eye, ever guiding the lost and the wandering. In its light, you may find truth, or be led astray by shadows. Choose wisely, for the night holds both beauty and peril.",
+                "shar": "In the absence of light, all things are born. The dark is where secrets dwell, where pain and grief grow, unchallenged. I am the shadow that devours hope, the quiet that embraces you in silence. In my realm, loss is not an enemy, it is a companion—forever at your side.",
+                "silvanus": "Nature's balance is delicate, mortal. It does not care for your wars or your desires. The wind moves through the trees, the rivers carve through the earth, and the seasons turn in their own time. You are but a small part of the whole. Honor the wilds, and they will sustain you. Disrupt it, and you will know its wrath.",
+                "tymora": "Fortune favors the bold, mortal. Risk and reward walk hand in hand, but you must dare to step into the unknown. Trust in chance, for it dances through life like a playful breeze. And remember—no journey is ever truly random; it is fate, dressed in a cloak of chaos.",
+                "waukeen": "Commerce is the heart of civilization. In the exchange of goods and ideas, all things have value. Remember, every trade has two sides: one gains, and the other loses. The balance between them shapes the world. Keep your dealings fair, and fortune will smile upon you.",
+                "lathander": "The dawn is always new, a promise of beginnings. Life, like the sun, rises and sets, but it is never the same. Each day is an opportunity to start anew, to renew what has been lost or forgotten. Walk the road ahead with hope in your heart and your hands open to the world. It is never too late to embrace the light.",
+
+
+
+
+
+
 
 
             };

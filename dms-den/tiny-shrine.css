@@ -471,21 +471,46 @@ a {
     /* Scale image on hover */
 }
 
+/* Add this to your CSS for messages */
+.message-container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    color: goldenrod;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.65);
+    margin: 0 auto;
+}
+
+/* Optional - Ensures the error message is displayed in the center */
 .error-message-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    color: goldenrod;
     text-shadow: 0 0 10px #b59e28, 0 0 20px #b59e28;
 }
 
+/* Ensure error message follows the same style */
 #error-message {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
     color: goldenrod;
-    margin-top: 10px;
-    max-width: 400px;
     padding: 10px;
-    padding-bottom: 30px;
+    max-width: 400px;
     border-radius: 5px;
-    overflow-wrap: break-word;
+    background: rgba(0, 0, 0, 0.65);
+    margin: 0 auto;
+    text-align: center;
 }
 
 @keyframes shake {
