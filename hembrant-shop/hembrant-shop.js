@@ -29,14 +29,15 @@ newInItems.forEach(item => {
 });
 
 // Handle Navbar Toggle
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburgerIcon = document.getElementById('hamburgerIcon');
-    const navbarMenu = document.getElementById('navbarMenu');
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.navbar-hamburger');
+    const menu = document.querySelector('.navbar-menu');
 
-    hamburgerIcon.addEventListener('click', () => {
-        navbarMenu.classList.toggle('active');
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('active'); // Toggles the active class
     });
 });
+
 
 // Cart State and Functions
 let cartItems = []; // Array to hold cart items
