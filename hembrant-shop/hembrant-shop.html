@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bränt och Blandat Shop</title>
+    <link rel="stylesheet" href="hembrant-shop.css">
+</head>
+
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Bränt & Blandat</h1>
+            <p>Enchanting crap for every quest</p>
+            <a href="#" class="hero-button">shop new in</a>
+        </div>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <a href="#">Bränt & Blandat</a>
+            </div>
+            <div class="navbar-menu" id="navbarMenu">
+                <ul>
+                    <li><a href="">Apparel</a></li>
+                    <li><a href="">Familiar</a></li>
+                    <li><a href="">Items & Artefacts</a></li>
+                    <li><a href="">Scrolls and Enchantments</a></li>
+                </ul>
+
+            </div>
+            <div class="navbar-hamburger" id="hamburgerIcon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="cart">
+                <button class="cart-button">
+                    <img src="shop-images/shoppingcart.webp" alt="Shopping Cart">
+                    <span class="cart-count">0</span> <!-- Dynamic item count -->
+                </button>
+            </div>
+            <div class="cart-drawer hidden">
+                <div class="cart-drawer-header">
+                    <h3>Your Cart</h3>
+                    <button class="close-drawer">✖</button>
+                </div>
+                <div class="cart-drawer-body">
+                    <p class="empty-message">Your cart is empty.</p>
+                    <!-- Dynamic cart items will be inserted here -->
+                    <ul class="cart-items"></ul>
+                </div>
+                <div class="cart-drawer-footer">
+                    <p class="total-price">Total: $0.00</p>
+                    <button class="checkout-button">Checkout</button>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <section class="new-in">
+        <h2 class="new-in-title">New In</h2>
+        <div class="new-in-grid">
+            <div class="new-in-item">
+                <img class="main-product-img" src="shop-images/raven-goggels.png" alt="Raven Goggels">
+                <img class="hover-product-img" src="shop-images/raven-googles-product.png" alt="">
+                <h3>Buddy Goggles</h3>
+                <p>20 GP</p>
+            </div>
+            <div class="new-in-item">
+                <img class="main-product-img" src="shop-images/yellow-bat-jacket.png" alt="bat jacket">
+                <img class="hover-product-img" src="shop-images/yellow-bat-jacket-product.png" alt="">
+                <h3>Sidekick Jacket</h3>
+                <p>30 GP</p>
+            </div>
+            <div class="new-in-item">
+                <img class="main-product-img" src="shop-images/bag-of-holding.jpg" alt="bedazzled bag of holding">
+                <img class="hover-product-img" src="shop-images/bag-of-holding-gold.jpg" alt="">
+                <h3>Endless Satchel</h3>
+                <p>650 GP</p>
+            </div>
+            <div class="new-in-item">
+                <img class="main-product-img" src="shop-images/gold-froggy.png" alt="Raven Goggels">
+                <img class="hover-product-img" src="shop-images/froggy-necklace.png" alt="">
+                <h3>Gold Trinket</h3>
+                <p>100 GP</p>
+            </div>
+        </div>
+    </section>
+    <script src="hembrant-shop.js"></script>
+</body>
+
+</html>
