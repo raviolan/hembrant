@@ -4,30 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bränt och Blandat Shop</title>
+    <title>Apparel</title>
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/cart.css">
-    <link rel="stylesheet" href="/css/hero.css">
-    <link rel="stylesheet" href="/css/new-in.css">
+    <link rel="stylesheet" href="/css/category-hero.css">
+    <link rel="stylesheet" href="/css/category.css">
 </head>
 
 <body>
-    <header class="hero">
+    <header class="category-hero" style="background-image: url('/shop-images/apparel-hero.png');">
         <div class="hero-content">
-            <h1>Bränt & Blandat</h1>
-            <p>Enchanting crap for every quest</p>
-            <a href="#" class="hero-button">shop new in</a>
+            <h2>with grace for your face</h2>
         </div>
         <nav class="navbar">
             <div class="navbar-logo">
                 <a href="/hembrant-shop.html">Bränt & Blandat</a>
-
             </div>
             <div class="navbar-menu" id="navbarMenu">
                 <ul>
-                    <li><a href="categories/apparel.html">Apparel</a></li>
-                    <li><a href="categories/familiar.html">Familiar</a></li>
+                    <li><a href="">Apparel</a></li>
+                    <li><a href="">Familiar</a></li>
                     <li><a href="">Items & Artefacts</a></li>
                     <li><a href="">Scrolls and Enchantments</a></li>
                 </ul>
@@ -62,13 +59,13 @@
 
         </nav>
     </header>
-
-    <section class="new-in">
-        <h2 class="new-in-title">New In</h2>
-        <div class="new-in-grid"></div>
-    </section>
-    <script src="hembrant-shop.js"></script>
+    <main data-category="apparel">
+        <section class="category-section">
+            <h2 class="category-title">Apparel</h2>
+            <div class="category-grid"></div>
+        </section>
+    </main>
+    <script src="category.js" defer></script>
 </body>
-
 
 </html>

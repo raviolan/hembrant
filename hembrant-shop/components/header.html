@@ -4,46 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bränt och Blandat Shop</title>
-    <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/cart.css">
-    <link rel="stylesheet" href="/css/hero.css">
-    <link rel="stylesheet" href="/css/new-in.css">
 </head>
 
 <body>
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Bränt & Blandat</h1>
-            <p>Enchanting crap for every quest</p>
-            <a href="#" class="hero-button">shop new in</a>
-        </div>
+    <header>
+        <!-- Navbar -->
         <nav class="navbar">
             <div class="navbar-logo">
                 <a href="/hembrant-shop.html">Bränt & Blandat</a>
-
             </div>
             <div class="navbar-menu" id="navbarMenu">
                 <ul>
-                    <li><a href="categories/apparel.html">Apparel</a></li>
-                    <li><a href="categories/familiar.html">Familiar</a></li>
-                    <li><a href="">Items & Artefacts</a></li>
-                    <li><a href="">Scrolls and Enchantments</a></li>
+                    <li><a href="/categories/apparel.html">Apparel</a></li>
+                    <li><a href="/categories/familiar.html">Familiar</a></li>
+                    <li><a href="/categories/items.html">Items & Artefacts</a></li>
+                    <li><a href="/categories/scrolls.html">Scrolls and Enchantments</a></li>
                 </ul>
-
             </div>
             <div class="navbar-hamburger" id="hamburgerIcon">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            <div class="cart">
-                <button class="cart-button">
-                    <img src="/shop-images/shoppingcart.webp" alt="Shopping Cart">
-                    <span class="cart-count">0</span> <!-- Dynamic item count -->
-                </button>
-            </div>
+        </nav>
+
+        <!-- Cart -->
+        <div class="cart">
+            <button class="cart-button">
+                <img src="/shop-images/shoppingcart.webp" alt="Shopping Cart">
+                <span class="cart-count">0</span> <!-- Dynamic item count -->
+            </button>
             <div class="cart-drawer hidden">
                 <div class="cart-drawer-header">
                     <h3>Your Cart</h3>
@@ -59,16 +51,8 @@
                     <button class="checkout-button">Checkout</button>
                 </div>
             </div>
-
-        </nav>
-    </header>
-
-    <section class="new-in">
-        <h2 class="new-in-title">New In</h2>
-        <div class="new-in-grid"></div>
-    </section>
-    <script src="hembrant-shop.js"></script>
+        </div>
+        <script src="hembrant-shop.js"></script>
 </body>
-
 
 </html>
