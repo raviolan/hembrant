@@ -1,20 +1,34 @@
-// Function to set up event listeners
+
+async function includeHTML() {
+    const elements = document.querySelectorAll('[data-include]');
+    for (const element of elements) {
+        const file = element.getAttribute('data-include');
+        try {
+            const response = await fetch(file);
+            if (response.ok) {
+                const content = await response.text();
+                element.innerHTML = content;
+            } else {
+                console.error(`Failed to load ${file}: ${response.statusText}`);
+            }
+        } catch (error) {
+            console.error(`Error loading ${file}:`, error);
+        }
+    }
+    setupEventListeners(); // Ensure event listeners are set after dynamic content is loaded
+}
+
 function setupEventListeners() {
-    // Navbar Hamburger Menu Toggle
     const hamburgerIcon = document.getElementById('hamburgerIcon');
     const navbarMenu = document.getElementById('navbarMenu');
-
     if (hamburgerIcon && navbarMenu) {
         hamburgerIcon.addEventListener('click', () => {
             navbarMenu.classList.toggle('active');
         });
     }
-
-    // Cart Drawer Functionality
     const cartButton = document.querySelector('.cart-button');
     const cartDrawer = document.querySelector('.cart-drawer');
     const closeDrawerButton = document.querySelector('.close-drawer');
-
     if (cartButton && cartDrawer && closeDrawerButton) {
         cartButton.addEventListener('click', () => {
             cartDrawer.classList.toggle('open');
@@ -25,60 +39,34 @@ function setupEventListeners() {
     }
 }
 
-// Function to fetch and display "New In" items
-function loadNewInItems() {
-    fetch('/products.json') // Ensure the path to your JSON file is correct
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to fetch products: ${response.statusText}`);
-            }
-            return response.json();
-        })
-        .then(products => {
-            const newInGrid = document.querySelector('.new-in-grid');
-            if (!newInGrid) {
-                console.warn('New In grid not found.');
-                return;
-            }
-
-            // Filter for "New In" items (e.g., most recently added products)
-            const newInItems = products.slice(0, 4); // Adjust the number of items as needed
-
-            // Clear the grid (if needed) and populate items
-            newInGrid.innerHTML = ''; // Clear previous content
-            newInItems.forEach(item => {
-                const productElement = createProductElement(item);
-                newInGrid.appendChild(productElement);
-            });
-        })
-        .catch(error => {
-            console.error('Error loading New In items:', error);
-        });
-}
-
-// Helper function to create product elements
 function createProductElement(product) {
     const productDiv = document.createElement('div');
     productDiv.classList.add('new-in-item');
-
-    // Add product image with hover functionality
     productDiv.innerHTML = `
-        <img class="main-product-img" src="${product.mainImage}" alt="${product.name}">
-        <img class="hover-product-img" src="${product.hoverImage}" alt="${product.name}">
+        <div class="product-image-wrapper">
+            <img class="main-product-img" src="${product.mainImage}" alt="${product.name}">
+            <img class="hover-product-img" src="${product.hoverImage}" alt="${product.name}">
+        </div>
         <h3>${product.name}</h3>
-        <p>GP ${product.price.toFixed(2)}</p>
+        <p>$${product.price.toFixed(2)}</p>
     `;
-
     return productDiv;
 }
 
+function loadNewInItems() {
+    fetch('/products.json')
+        .then(response => response.json())
+        .then(products => {
+            const newInGrid = document.querySelector('.new-in-grid');
+            const newInItems = products.slice(0, 4); // Pull the first 4 products
+            newInGrid.innerHTML = '';
+            newInItems.forEach(product => {
+                const productElement = createProductElement(product);
+                newInGrid.appendChild(productElement);
+            });
+        })
+        .catch(error => console.error('Error loading New In items:', error));
+}
 
-
-// Call the loadNewInItems function on DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    loadNewInItems();
-});
-
-
-// Wait for the DOM to be ready
-document.addEventListener('DOMContentLoaded', setupEventListeners);
+document.addEventListener('DOMContentLoaded', loadNewInItems);
+document.addEventListener('DOMContentLoaded', includeHTML);
